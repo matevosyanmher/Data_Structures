@@ -1,3 +1,5 @@
+package com.company;
+
 public class OrdArray {
     private long a[];
     private int nElems;
@@ -11,21 +13,19 @@ public class OrdArray {
         return nElems;
     }
 
-    public int find(long searchKey)
-    {
+    public int find(long searchKey) {
         int lowerBound = 0;
-        int upperBound = nElems-1;
+        int upperBound = nElems - 1;
         int curIn;
-        while(true)
-        {
-            curIn = (lowerBound + upperBound ) / 2;
-            if(a[curIn]==searchKey)
+        while (true) {
+            curIn = (lowerBound + upperBound) / 2;
+            if (a[curIn] == searchKey)
                 return curIn; // found it
-            else if(lowerBound > upperBound)
+            else if (lowerBound > upperBound)
                 return nElems; // can’t find it
             else // divide range
             {
-                if(a[curIn] < searchKey)
+                if (a[curIn] < searchKey)
                     lowerBound = curIn + 1; // it’s in upper half
                 else
                     upperBound = curIn - 1; // it’s in lower half
@@ -93,4 +93,4 @@ class OrderedApp {
         arr.delete(99);
         arr.display(); // Повторный вывод
     }
-} //Конец класса OrderedApp
+} //Конец класса com.company.OrderedApp
