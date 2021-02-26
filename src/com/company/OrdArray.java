@@ -1,7 +1,7 @@
 package com.company;
 
 public class OrdArray {
-    private long a[];
+    private final long[] a;
     private int nElems;
 
     public OrdArray(int max) {
@@ -19,11 +19,12 @@ public class OrdArray {
         int curIn;
         while (true) {
             curIn = (lowerBound + upperBound) / 2;
+
             if (a[curIn] == searchKey)
-                return curIn; // found it
+                return curIn;
             else if (lowerBound > upperBound)
-                return nElems; // can’t find it
-            else // divide range
+                return nElems;
+            else
             {
                 if (a[curIn] < searchKey)
                     lowerBound = curIn + 1; // it’s in upper half
@@ -39,12 +40,12 @@ public class OrdArray {
             if (a[j] > value)
                 break;
         }
-        for (int k = nElems; k > j; k--)
+        for (int k = nElems; k > j; k--) {
             a[k] = a[k - 1];
+        }
         a[j] = value;
         nElems++;
     }
-
 
     public boolean delete(long value) {
         int j = find(value);
