@@ -1,7 +1,7 @@
 package com.company;
 
 public class OrdArray {
-    private long a[];
+    private final long[] a;
     private int nElems;
 
     public OrdArray(int max) {
@@ -39,12 +39,12 @@ public class OrdArray {
             if (a[j] > value)
                 break;
         }
-        for (int k = nElems; k > j; k--)
+        for (int k = nElems; k > j; k--) {
             a[k] = a[k - 1];
+        }
         a[j] = value;
         nElems++;
     }
-
 
     public boolean delete(long value) {
         int j = find(value);
