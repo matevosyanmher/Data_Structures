@@ -83,12 +83,15 @@ class OrderedApp {
         arr.insert(00);
         arr.insert(66);
         arr.insert(33);
+
         int searchKey = 55; // Поиск элемента
         if (arr.find(searchKey) != arr.size())
             System.out.println("Found " + searchKey);
         else
             System.out.println("Can't find " + searchKey);
+
         arr.display(); // Вывод содержимого
+
         arr.delete(00); // Удаление трех элементов
         arr.delete(55);
         arr.delete(99);

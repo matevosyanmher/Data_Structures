@@ -58,10 +58,8 @@ public class OrderedArrayCopy {
         int j = find(value);
         if (j == nElms) {
             return false;
-        } else
-            for (int i = j; i < nElms; i++)
-                a[i] = a[i + 1];
-                nElms--;
+        } else if (nElms - j >= 0) System.arraycopy(a, j + 1, a, j, nElms - 1);  //a, j + 1, a, j, nElms - j
+        nElms--;
 
         return true;
     }
@@ -78,7 +76,7 @@ class OrderedArrayAppCopy {
 
         arr.display();
         System.out.println(arr.find(10));
-        arr.delete(125);
+        arr.delete(12);
         arr.display();
     }
 }
