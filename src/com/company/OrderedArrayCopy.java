@@ -53,6 +53,18 @@ public class OrderedArrayCopy {
             }
         }
     }
+
+    public boolean delete(long value) {
+        int j = find(value);
+        if (j == nElms) {
+            return false;
+        } else
+            for (int i = j; i < nElms; i++)
+                a[i] = a[i + 1];
+                nElms--;
+
+        return true;
+    }
 }
 
 class OrderedArrayAppCopy {
@@ -65,6 +77,8 @@ class OrderedArrayAppCopy {
         arr.insert(10);
 
         arr.display();
-        System.out.println(arr.find(177));
+        System.out.println(arr.find(10));
+        arr.delete(125);
+        arr.display();
     }
 }
