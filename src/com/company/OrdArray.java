@@ -24,8 +24,7 @@ public class OrdArray {
                 return curIn;
             else if (lowerBound > upperBound)
                 return nElems;
-            else
-            {
+            else {
                 if (a[curIn] < searchKey)
                     lowerBound = curIn + 1; // it’s in upper half
                 else
@@ -53,8 +52,9 @@ public class OrdArray {
             return false;
         else // Элемент найден
         {
-            for (int k = j; k < nElems; k++) // Перемещение последующих элементов
-                a[k] = a[k + 1];
+//            for (int k = j; k < nElems; k++) // Перемещение последующих элементов
+//                a[k] = a[k + 1];
+            if (nElems - j >= 0) System.arraycopy(a, j + 1, a, j, nElems - j);
             nElems--; // Уменьшение размера
             return true;
         }

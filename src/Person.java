@@ -3,10 +3,10 @@ public class Person {
     private String lastName;
     private int age;
 
-    public Person(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
+    public Person(String first, String last, int a) {
+        firstName = first;
+        lastName = last;
+        age = a;
     }
 
     public void displayPerson() {
@@ -31,11 +31,11 @@ class ClassDataArray {
 
     public Person find(String searchName) {
         int j;
-        for (j = 0; j < a.length; j++) {
+        for (j = 0; j < nElems; j++) {
             if (a[j].getLastName().equals(searchName))
                 break;
         }
-        if (j == a.length) {
+        if (j == nElems) {
             return null;
         } else return a[j];
     }
@@ -47,17 +47,17 @@ class ClassDataArray {
 
     public boolean delete(String searchName) {
         int j;
-        for (j = 0; j < a.length; j++) {
-            if (a[j].getLastName().equals(searchName)) {
+        for (j = 0; j < nElems; j++)
+            if (a[j].getLastName().equals(searchName))
                 break;
-            }
-        }
-        if (j == a.length) {
+
+
+        if (j == nElems)
             return false;
-        } else {
-            for (int k = j; k < a.length-1; k++) {
+        else {
+            for (int k = j; k < nElems; k++)
                 a[k] = a[k + 1];
-            }
+            nElems--;
             return true;
         }
     }
