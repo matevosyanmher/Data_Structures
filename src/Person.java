@@ -42,6 +42,7 @@ class ClassDataArray {
 
     public void insert(String last, String first, int age) {
         a[nElems] = new Person(first, last, age);
+        nElems++;
     }
 
     public boolean delete(String searchName) {
@@ -54,7 +55,7 @@ class ClassDataArray {
         if (j == a.length) {
             return false;
         } else {
-            for (int k = j; k < a.length; k++) {
+            for (int k = j; k < a.length-1; k++) {
                 a[k] = a[k + 1];
             }
             return true;
@@ -62,8 +63,8 @@ class ClassDataArray {
     }
 
     public void display() {
-        for (Person person : a) {
-            person.displayPerson();
+        for (int i = 0; i < nElems; i++) {
+            a[i].displayPerson();
         }
     }
 }
