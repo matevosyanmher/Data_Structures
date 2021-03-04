@@ -1,4 +1,7 @@
 package com.company;
+import java.util.Arrays;
+
+import java.lang.reflect.Array;
 
 public class HighArray {
     private long[] a;
@@ -48,7 +51,28 @@ public class HighArray {
         }
         System.out.println(" ");
     }
+
+    public long getMax() {
+        long max = 0;
+        int k;
+        if (nElems == 0)
+            return -1;
+
+        for (k = 0; k < nElems; k++) {
+            if (a[k] > max) {
+                max = a[k];
+            }
+
+        }
+        System.out.println("The Max number in the array is " + max);
+
+        delete(max);
+
+        return max;
+
+    }
 }
+
 
 class HighArrayApp {
     public static void main(String[] args) {
@@ -79,5 +103,10 @@ class HighArrayApp {
         arr.delete(99);
 
         arr.display();
+        arr.getMax();
+
+        arr.display();
+
+
     }
 }
